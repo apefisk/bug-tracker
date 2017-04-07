@@ -1,0 +1,44 @@
+<div>
+  {{name.auth.email}}
+</div>
+  
+
+
+<div class="row">
+  <div class="col-xs-7">
+    <h1>Found Bugs</h1>
+  </div>
+  <div class="col-xs-7">
+    <button class="btn btn-success btn-lg" [attr.data-target]=" '#' + bugDetail.modalId" data-toggle="modal">Add Bug</button>
+  </div>
+  <br>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Status</th>
+          <th>Severity</th>
+          <th>Description</th>
+          <th>Found By</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let bug of bugs" [attr.data-target]=" '#' + bugDetail.modalId" data-toggle="modal" (click)="bugDetail.configureForm(bug)">
+          <td>{{bug.title}}</td>
+          <td>{{bug.status | status}}</td>
+          <td>{{bug.severity | severity }}</td>
+          <td>{{bug.description}}</td>
+          <td>{{bug.createdBy}}</td>
+          <td>{{bug.createdDate | date:'mediumDate'}}</td>
+
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<bug-detail #bugDetail></bug-detail>

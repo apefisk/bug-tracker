@@ -1,0 +1,16 @@
+h1 {
+  margin-botton: 2rem;
+}
+
+thead th {
+  border-top: none;
+  border-bottom: 1px solid #34434B;
+}
+
+td {
+  border-bottom: .5px solid rgba(52,67, 75,.1);
+}
+
+i {
+  color: #34434B;
+}

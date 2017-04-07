@@ -1,0 +1,37 @@
+<div class="modal fade" [id]="modalId">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <form [formGroup]="bugForm" #form>
+        state: {{form.className}}
+        <div class="modal-body">
+          <fieldset class="form-inline">
+            <div class="form-group" id="title-form-group">
+               <label for="title-field" class="sr-only">Bug Title</label>
+                <input type="text" class="form-control" id="title-field" placeholder="Bug Title" formControlName="title">
+            </div>
+            <div class="form-group float-xs-right">
+              <label for="status-dropdown" class="sr-only">Status</label>
+              <select id="status-dropdown" class="form-control btn btn-primary" formControlName="status">
+                <option *ngFor="let status of statusArr" [value]="status">{{statuses[status]}}</option>
+              </select>
+            </div>
+          </fieldset>
+          <div class="form-group float-xs-left" id="severity-form-group">
+            <label for="severity-dropdown" class="sr-only">Severity Dropdow</label>
+              <select id="severity-dropdown" class="form-control" formControlName="severity">
+                <option *ngFor="let severity of severityArr" [value]="severity">{{severities[severity]}}</option>
+              </select>
+          </div>
+          <div class="form-group">
+            <label for="desc-area" class="se-only">Description</label>
+            <textarea id="desc-area" rows="10" class="form-control" placeholder="Type a description of your bug" formControlName="description"></textarea>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-danger cancel" type="button" data-dismiss="modal">Cancel</button>
+          <button class="btn btn-success suc" type="submit" data-dismiss="modal" (click)="submitForm()">Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
